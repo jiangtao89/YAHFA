@@ -111,3 +111,14 @@ Support for Android N(7.0 and 7.1) is experimental and not stable.
 ## License
 
 YAHFA is distributed under GNU GPL V3.
+
+## Issues
+
+Please provide the complete information before submitting an issue, including but not limited to the following:
+
+- Device info
+- System info
+- Hook target App
+- Hook Plugin code
+- How to reproduce
+

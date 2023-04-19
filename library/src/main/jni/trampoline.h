@@ -5,16 +5,10 @@
 #ifndef YAHFA_TAMPOLINE_H
 #define YAHFA_TAMPOLINE_H
 
-extern unsigned int hookCap; // capacity for trampolines
-extern unsigned int hookCount; // current count of used trampolines
+void setupTrampoline(unsigned char offset);
 
-extern unsigned char trampoline1[];
-extern unsigned char trampoline2[];
+void *genTrampoline(void *toMethod, void *entrypoint);
 
-int doInitHookCap(unsigned int cap);
-void *genTrampoline1(void *hookMethod);
-void *genTrampoline2(void *originMethod, void *entryPoint);
-
-#define DEFAULT_CAP 64 //size of each trampoline area would be no more than 4k Bytes(one page)
+#define TRAMPOLINE_SPACE_SIZE 4096 // 4k mem page size
 
 #endif //YAHFA_TAMPOLINE_H

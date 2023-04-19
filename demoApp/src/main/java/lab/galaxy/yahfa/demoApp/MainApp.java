@@ -2,6 +2,9 @@ package lab.galaxy.yahfa.demoApp;
 
 import android.app.Application;
 import android.content.Context;
+import android.os.Environment;
+
+import java.io.File;
 
 import dalvik.system.DexClassLoader;
 import lab.galaxy.yahfa.HookMain;
@@ -21,11 +24,11 @@ public class MainApp extends Application {
          */
             ClassLoader classLoader = getClassLoader();
 
-            DexClassLoader dexClassLoader = new DexClassLoader("/sdcard/demoPlugin-debug.apk",
+            DexClassLoader dexClassLoader = new DexClassLoader(
+                    new File(Environment.getExternalStorageDirectory(), "demoPlugin-debug.apk").getAbsolutePath(),
                     getCodeCacheDir().getAbsolutePath(), null, classLoader);
             HookMain.doHookDefault(dexClassLoader, classLoader);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
